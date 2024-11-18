@@ -1,13 +1,3 @@
-from django.shortcuts import render
-from rest_framework.generics import ListAPIView
-from ..modelos.models import Libro
-from ..serializers import LibroSerializer
-
-class LibroListView(ListAPIView):
-    queryset = Libro.objects.all()
-    serializer_class = LibroSerializer
-
-
 from django.shortcuts import render, redirect
 from django.contrib.auth import get_user_model
 from django.contrib.auth.forms import UserCreationForm
@@ -21,7 +11,7 @@ def crear_usuario(request):
         if form.is_valid():
             usuario = form.save()
             messages.success(request, f"Usuario '{usuario.username}' creado exitosamente.")
-            #return redirect('inicio')  # Redirige a la página de inicio
+            return redirect('inicio')  # Redirige a la página de inicio
         else:
             messages.error(request, "Hubo un error al crear el usuario. Revisa los datos.")
     else:
