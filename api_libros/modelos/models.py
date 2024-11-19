@@ -1,6 +1,3 @@
-from django.db import models
-from django.contrib.auth.models import AbstractUser
-
 
 
 from django.db import models
@@ -56,6 +53,3 @@ class Recomendacion(models.Model):
 
     def __str__(self):
         return f"Recomendación de {self.usuario.email} para {self.libro.titulo}"
-
-
-
